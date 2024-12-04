@@ -42,32 +42,40 @@ button {
 button:hover {
   background-color: #6d0000;
 }
-
   </style>
 </head>
 <body>
   <div id="story-container">
     <h1>Chapter 1: Fragile Mind</h1>
-    <p>INT. RUSTY CASTOR'S APARTMENT - NIGHT</p>
-    <p>
-        The room is dimly lit, shadows dancing on the walls as Rusty Castor, a man in his mid-30s with a weary expression, lies awake in bed. The only sound is the distant ticking of a clock. Rusty's eyes dart around nervously, haunted by unseen specters.
-        
-        Rusty gets up, restless, and paces the room. The air feels heavy with an unspoken tension. The walls seem to close in as he glances at old photographs on the dresser—a family that once was, now fractured.
-        
-        The outside world is muffled, but a distant siren echoes through the night. Rusty's gaze fixates on the window, revealing the eerie fog encroaching on the town. His unease intensifies.
-        
-        Rusty clutches his head, his breathing quickens. The room flickers, revealing glimpses of distorted images—dark figures, twisted faces. The clock's ticking becomes irregular, echoing the chaos in Rusty's mind.
-        
-        Cut to Rusty standing before a fog-covered mirror. His reflection distorts for a moment, revealing a glimpse of anguish. The mirror seems to hold secrets he fears to confront.
-        
-        As the siren's wail grows louder, Rusty clutches his chest, overwhelmed by an indescribable fear. The room pulses with an otherworldly energy, setting the stage for Rusty's descent into the haunting depths of Silent Hill.
-    </p>
+    <p id="story-text"></p>
     <button onclick="nextPage()">Continue</button>
   </div>
 
   <script>
+    // Replace Rusty Castor with the name from session storage
+    window.onload = function() {
+      const name = sessionStorage.getItem('nextPageName') || 'Rusty Castor';
+      const story = `
+        INT. ${name.toUpperCase()}'S APARTMENT - NIGHT
+
+        The room is dimly lit, shadows dancing on the walls as ${name}, a person in their mid-30s with a weary expression, lies awake in bed. The only sound is the distant ticking of a clock. ${name}'s eyes dart around nervously, haunted by unseen specters.
+        
+        ${name} gets up, restless, and paces the room. The air feels heavy with an unspoken tension. The walls seem to close in as they glance at old photographs on the dresser—a family that once was, now fractured.
+        
+        The outside world is muffled, but a distant siren echoes through the night. ${name}'s gaze fixates on the window, revealing the eerie fog encroaching on the town. Their unease intensifies.
+        
+        ${name} clutches their head, their breathing quickens. The room flickers, revealing glimpses of distorted images—dark figures, twisted faces. The clock's ticking becomes irregular, echoing the chaos in ${name}'s mind.
+        
+        Cut to ${name} standing before a fog-covered mirror. Their reflection distorts for a moment, revealing a glimpse of anguish. The mirror seems to hold secrets they fear to confront.
+        
+        As the siren's wail grows louder, ${name} clutches their chest, overwhelmed by an indescribable fear. The room pulses with an otherworldly energy, setting the stage for their descent into the haunting depths of Silent Hill.
+      `;
+
+      document.getElementById('story-text').innerText = story;
+    };
+
     function nextPage() {
-      // You can redirect to the next chapter or handle story progression here
+      // Redirect to the next chapter
       window.location.href = 'chapter2.html';
     }
   </script>

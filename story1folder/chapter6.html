@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
   <style>
-    /* Include the specified styles directly here */
     body {
       font-family: 'Cinzel Decorative', sans-serif;
       background-color: #1c1c1c;
@@ -48,23 +47,33 @@
 <body>
   <div id="story-container">
     <h1>Chapter 6: Descent into Darkness</h1>
-    <p>INT. UNDERGROUND TUNNELS - MIDNIGHT</p>
-    <p>
-        Rusty, still grappling with the haunting memories of his childhood home, finds himself drawn to a foreboding entrance leading into a network of underground tunnels. The descent is steep, and the air grows colder as he navigates the dimly lit passages.
-        
-        The tunnels twist and turn, creating a sense of claustrophobia that mirrors Rusty's growing anxiety. The walls seem to close in, adorned with flickering, dimly lit bulbs casting long, ominous shadows. As Rusty ventures further, the darkness becomes suffocating.
-        
-        Eerie whispers reverberate through the tunnels, echoing fragments of his fears. Shadows materialize into nightmarish forms, embodying the manifestations of his deepest anxieties. The air becomes thick with an otherworldly energy, and the ground feels unstable beneath his feet.
-        
-        Spectral figures flicker at the edges of his vision, luring him deeper into the abyss. Rusty's surroundings morph into surreal landscapes, where reality and nightmare blend seamlessly. The tunnel walls pulse with a malevolent force, mirroring the descent into the darkest recesses of his mind.
-        
-        The journey through the underground labyrinth becomes a relentless battle against unseen forces. Rusty is confronted by twisted apparitions, each encounter pushing him closer to the brink of his own psychological abyss. As Silent Hill tightens its grip, Rusty must confront the horrors within the shadows of the underground tunnels, facing the darkness that threatens to consume him.</p>
+    <p id="story-text"></p>
     <button onclick="nextPage()">Continue</button>
   </div>
 
   <script>
+    // Replace Rusty with the name from session storage
+    window.onload = function() {
+      const name = sessionStorage.getItem('nextPageName') || 'Rusty';
+      const story = `
+        INT. UNDERGROUND TUNNELS - MIDNIGHT
+
+        ${name}, still grappling with the haunting memories of their childhood home, finds themselves drawn to a foreboding entrance leading into a network of underground tunnels. The descent is steep, and the air grows colder as they navigate the dimly lit passages.
+
+        The tunnels twist and turn, creating a sense of claustrophobia that mirrors ${name}'s growing anxiety. The walls seem to close in, adorned with flickering, dimly lit bulbs casting long, ominous shadows. As ${name} ventures further, the darkness becomes suffocating.
+
+        Eerie whispers reverberate through the tunnels, echoing fragments of their fears. Shadows materialize into nightmarish forms, embodying the manifestations of their deepest anxieties. The air becomes thick with an otherworldly energy, and the ground feels unstable beneath their feet.
+
+        Spectral figures flicker at the edges of their vision, luring them deeper into the abyss. ${name}'s surroundings morph into surreal landscapes, where reality and nightmare blend seamlessly. The tunnel walls pulse with a malevolent force, mirroring the descent into the darkest recesses of their mind.
+
+        The journey through the underground labyrinth becomes a relentless battle against unseen forces. ${name} is confronted by twisted apparitions, each encounter pushing them closer to the brink of their own psychological abyss. As Silent Hill tightens its grip, ${name} must confront the horrors within the shadows of the underground tunnels, facing the darkness that threatens to consume them.
+      `;
+
+      document.getElementById('story-text').innerText = story;
+    };
+
     function nextPage() {
-      // You can redirect to the next chapter or handle story progression here
+      // Redirect to the next chapter
       window.location.href = 'chapter7.html';
     }
   </script>

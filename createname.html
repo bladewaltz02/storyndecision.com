@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Next Page Name Setter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        input, button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 5px;
+        }
+        button {
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #output {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Set Next Page Name</h1>
+    <input type="text" id="pageNameInput" placeholder="Enter page name">
+    <button onclick="setPageName()">Set Page Name</button>
+
+    <div id="output"></div>
+
+    <script>
+        // Save the page name in session storage and redirect to story1.html
+        function setPageName() {
+            const pageName = document.getElementById('pageNameInput').value;
+            if (pageName.trim() === "") {
+                document.getElementById('output').innerText = "Please enter a valid page name.";
+                return;
+            }
+            sessionStorage.setItem('nextPageName', pageName);
+            window.location.href = "story1folder/story1.html";
+        }
+
+        // Check if a page name is already set when the page loads
+        window.onload = function() {
+            const savedPageName = sessionStorage.getItem('nextPageName');
+            if (savedPageName) {
+                document.getElementById('output').innerText = `Current next page name: ${savedPageName}`;
+            }
+        };
+    </script>
+</body>
+</html>

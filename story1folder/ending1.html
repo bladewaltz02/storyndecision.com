@@ -33,9 +33,21 @@
 <body>
   <div id="ending-container">
     <h1>Ending 1: Resilience of the Soul</h1>
-    <p>Rusty, strengthened by facing his shadows, uses the shattered mirrors to rebuild himself...</p>
-    <p>He emerges from the mirror chamber with newfound resilience and self-acceptance, leaving Silent Hill behind.</p>
+    <p id="ending-text"></p>
     <p>Thank you for playing "Whispers of the Shattered Soul"!</p>
   </div>
+
+  <script>
+    // Replace Rusty with the name from session storage
+    window.onload = function() {
+      const name = sessionStorage.getItem('nextPageName') || 'Rusty';
+      const endingText = `
+        ${name}, strengthened by facing their shadows, uses the shattered mirrors to rebuild themself...
+
+        They emerge from the mirror chamber with newfound resilience and self-acceptance, leaving Silent Hill behind.
+      `;
+      document.getElementById('ending-text').innerText = endingText;
+    };
+  </script>
 </body>
 </html>
