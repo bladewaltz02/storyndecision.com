@@ -6,66 +6,74 @@
   <link rel="stylesheet" href="styles.css">
   <title>Whispers of the Shattered Soul - Chapter 2</title>
   <style>
-    /* Include the styles directly here if you want */
     body {
-  font-family: 'Cinzel Decorative', sans-serif;
-  background-color: #1c1c1c;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-}
+      font-family: 'Cinzel Decorative', sans-serif;
+      background-color: #1c1c1c;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
 
-#story-container {
-  background-color: #2b2b2b;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  max-width: 600px;
-  width: 100%;
-  text-align: left;
-  color: #e0e0e0;
-}
+    #story-container {
+      background-color: #2b2b2b;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      max-width: 600px;
+      width: 100%;
+      text-align: left;
+      color: #e0e0e0;
+    }
 
-button {
-  padding: 10px;
-  font-size: 16px;
-  cursor: pointer;
-  background-color: #9d0000;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  transition: background-color 0.3s ease-in-out;
-}
+    button {
+      padding: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: #9d0000;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease-in-out;
+    }
 
-button:hover {
-  background-color: #6d0000;
-}
-
+    button:hover {
+      background-color: #6d0000;
+    }
   </style>
 </head>
 <body>
   <div id="story-container">
     <h1>Chapter 2: Echoes of Guilt</h1>
-    <p>EXT. FOG-COVERED STREETS - DUSK</p>
-    <p>
-        Rusty, compelled by an unseen force, emerges into the fog-shrouded town. The air is thick, and the streetlights cast eerie shadows on the cobblestone streets. Echoes of distant whispers fill the air as he wanders, the town seemingly alive with a presence of its own.
-        
-        The fog becomes denser, reducing visibility. Rusty's steps are hesitant, each one echoing louder than the last. Shadows dance on the edges of his vision, hinting at hidden terrors.
-        
-        Turning a corner, Rusty encounters reflections of his past—ghostly apparitions mirroring his guilt. Faces of those he wronged materialize, accusing stares haunting him as he walks. The weight of his actions becomes palpable.
-        
-        The whispers intensify, echoing fragments of his memories and regrets. Rusty stumbles upon a forgotten playground where laughter once echoed, now replaced by ghostly giggles that send shivers down his spine.
-        
-        In the distance, a flickering streetlight reveals a mysterious figure, barely visible through the thick fog. Rusty follows, the figure leading him deeper into the heart of Silent Hill, where his fears and guilt intertwine in a surreal dance.</p>
+    <p id="story-text"></p>
     <button onclick="nextPage()">Continue</button>
   </div>
 
   <script>
+    // Replace Rusty Castor with the name from session storage
+    window.onload = function() {
+      const name = sessionStorage.getItem('nextPageName') || 'Rusty Castor';
+      const story = `
+        EXT. FOG-COVERED STREETS - DUSK
+
+        ${name}, compelled by an unseen force, emerges into the fog-shrouded town. The air is thick, and the streetlights cast eerie shadows on the cobblestone streets. Echoes of distant whispers fill the air as they wander, the town seemingly alive with a presence of its own.
+        
+        The fog becomes denser, reducing visibility. ${name}'s steps are hesitant, each one echoing louder than the last. Shadows dance on the edges of their vision, hinting at hidden terrors.
+        
+        Turning a corner, ${name} encounters reflections of their past—ghostly apparitions mirroring their guilt. Faces of those they wronged materialize, accusing stares haunting them as they walk. The weight of their actions becomes palpable.
+        
+        The whispers intensify, echoing fragments of their memories and regrets. ${name} stumbles upon a forgotten playground where laughter once echoed, now replaced by ghostly giggles that send shivers down their spine.
+        
+        In the distance, a flickering streetlight reveals a mysterious figure, barely visible through the thick fog. ${name} follows, the figure leading them deeper into the heart of Silent Hill, where their fears and guilt intertwine in a surreal dance.
+      `;
+
+      document.getElementById('story-text').innerText = story;
+    };
+
     function nextPage() {
-      // You can redirect to the next chapter or handle story progression here
+      // Redirect to the next chapter
       window.location.href = 'chapter3.html';
     }
   </script>

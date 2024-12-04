@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
   <style>
-    /* Include the specified styles directly here */
     body {
       font-family: 'Cinzel Decorative', sans-serif;
       background-color: #1c1c1c;
@@ -48,23 +47,33 @@
 <body>
   <div id="story-container">
     <h1>Chapter 5: Haunting Memories</h1>
-    <p>INT. RUSTY'S CHILDHOOD HOME - DAY</p>
-    <p>
-        Rusty, disoriented from the maze of shadows, finds himself standing before the decaying remains of his childhood home. The once-familiar structure now stands as a dilapidated shell, haunted by memories he tried to bury.
-        
-        Each creaking floorboard beneath his weight resounds with echoes of the past. As Rusty explores the desolate rooms, he is confronted by vivid recollections—happy family dinners, laughter that once filled the halls, and the warmth of a love that has long since faded.
-        
-        Yet, with every step, the atmosphere shifts. Walls close in, portraits transform into grotesque caricatures, and the air grows heavy with a sense of impending doom. The rooms seem to warp, revealing hidden corners where shadows of unresolved conflicts linger.
-        
-        Rusty discovers a locked room at the end of the hallway. The key, a metaphor for the secrets he's kept buried, materializes in his trembling hands. As he unlocks the door, a flood of haunting memories rushes forth, challenging his attempts to escape the ghosts of his past.
-        
-        Silent Hill, in its relentless pursuit, forces Rusty to confront the ghosts within the very walls that once provided sanctuary. The childhood home becomes a battleground of emotions, a reflection of the shattered innocence that paved the way for the nightmarish descent that now unfolds.</p>
+    <p id="story-text"></p>
     <button onclick="nextPage()">Continue</button>
   </div>
 
   <script>
+    // Replace Rusty with the name from session storage
+    window.onload = function() {
+      const name = sessionStorage.getItem('nextPageName') || 'Rusty';
+      const story = `
+        INT. ${name.toUpperCase()}'S CHILDHOOD HOME - DAY
+
+        ${name}, disoriented from the maze of shadows, finds themselves standing before the decaying remains of their childhood home. The once-familiar structure now stands as a dilapidated shell, haunted by memories they tried to bury.
+        
+        Each creaking floorboard beneath their weight resounds with echoes of the past. As ${name} explores the desolate rooms, they are confronted by vivid recollections—happy family dinners, laughter that once filled the halls, and the warmth of a love that has long since faded.
+        
+        Yet, with every step, the atmosphere shifts. Walls close in, portraits transform into grotesque caricatures, and the air grows heavy with a sense of impending doom. The rooms seem to warp, revealing hidden corners where shadows of unresolved conflicts linger.
+        
+        ${name} discovers a locked room at the end of the hallway. The key, a metaphor for the secrets they've kept buried, materializes in their trembling hands. As they unlock the door, a flood of haunting memories rushes forth, challenging their attempts to escape the ghosts of their past.
+        
+        Silent Hill, in its relentless pursuit, forces ${name} to confront the ghosts within the very walls that once provided sanctuary. The childhood home becomes a battleground of emotions, a reflection of the shattered innocence that paved the way for the nightmarish descent that now unfolds.
+      `;
+
+      document.getElementById('story-text').innerText = story;
+    };
+
     function nextPage() {
-      // You can redirect to the next chapter or handle story progression here
+      // Redirect to the next chapter
       window.location.href = 'chapter6.html';
     }
   </script>

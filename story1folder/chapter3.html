@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
   <style>
-    /* Include the specified styles directly here */
     body {
       font-family: 'Cinzel Decorative', sans-serif;
       background-color: #1c1c1c;
@@ -48,23 +47,33 @@
 <body>
   <div id="story-container">
     <h1>Chapter 3: The Mirror's Curse</h1>
-    <p>INT. ABANDONED MANSION - NIGHT</p>
-    <p>
-        Rusty, guided by the elusive figure, arrives at an ominous abandoned mansion. Its dilapidated grandeur looms in the darkness, a silent witness to forgotten secrets. The air inside is stifling, and the floorboards creak under Rusty's cautious steps.
-        
-        Exploring the mansion, Rusty stumbles upon a room adorned with an ancient mirror. Its ornate frame seems to whisper promises of revelations. Hesitant, Rusty gazes into the mirror, his reflection initially mundane but gradually distorting into grotesque forms.
-        
-        Suddenly, the room transforms. Shadows detach from the walls, taking on nightmarish shapes that mirror Rusty's innermost fears. The mirror becomes a portal to his darkest thoughts, manifesting his anxieties in twisted, tangible forms.
-        
-        As Rusty struggles to break free, the reflections intensify. Each mirror in the mansion becomes a portal to a different facet of his troubled psyche. Faces of those he hurt, moments of regret, and surreal nightmares converge, trapping him in a kaleidoscope of guilt and horror.
-        
-        The mansion seems to pulsate with an otherworldly energy. Rusty is compelled to confront the twisted reflections of his own making, as the boundary between reality and nightmare blurs within the haunted walls of Silent Hill.</p>
+    <p id="story-text"></p>
     <button onclick="nextPage()">Continue</button>
   </div>
 
   <script>
+    // Replace Rusty with the name from session storage
+    window.onload = function() {
+      const name = sessionStorage.getItem('nextPageName') || 'Rusty';
+      const story = `
+        INT. ABANDONED MANSION - NIGHT
+
+        ${name}, guided by the elusive figure, arrives at an ominous abandoned mansion. Its dilapidated grandeur looms in the darkness, a silent witness to forgotten secrets. The air inside is stifling, and the floorboards creak under ${name}'s cautious steps.
+        
+        Exploring the mansion, ${name} stumbles upon a room adorned with an ancient mirror. Its ornate frame seems to whisper promises of revelations. Hesitant, ${name} gazes into the mirror, their reflection initially mundane but gradually distorting into grotesque forms.
+        
+        Suddenly, the room transforms. Shadows detach from the walls, taking on nightmarish shapes that mirror ${name}'s innermost fears. The mirror becomes a portal to ${name}'s darkest thoughts, manifesting anxieties in twisted, tangible forms.
+        
+        As ${name} struggles to break free, the reflections intensify. Each mirror in the mansion becomes a portal to a different facet of ${name}'s troubled psyche. Faces of those they hurt, moments of regret, and surreal nightmares converge, trapping them in a kaleidoscope of guilt and horror.
+        
+        The mansion seems to pulsate with an otherworldly energy. ${name} is compelled to confront the twisted reflections of their own making, as the boundary between reality and nightmare blurs within the haunted walls of Silent Hill.
+      `;
+
+      document.getElementById('story-text').innerText = story;
+    };
+
     function nextPage() {
-      // You can redirect to the next chapter or handle story progression here
+      // Redirect to the next chapter
       window.location.href = 'chapter4.html';
     }
   </script>

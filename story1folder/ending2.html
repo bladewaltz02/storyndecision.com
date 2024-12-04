@@ -33,10 +33,23 @@
 <body>
   <div id="ending-container">
     <h1>Ending 2: Lingering Shadows</h1>
-    <p>Despite Rusty's efforts, the shattered mirrors resist reconstruction...</p>
-    <p>The fragments remain disjointed, reflecting the unresolved conflicts within him.</p>
-    <p>The chamber transforms into a nightmarish battleground, and Rusty must confront lingering shadows that threaten to consume him.</p>
+    <p id="ending-text"></p>
     <p>Thank you for playing "Whispers of the Shattered Soul"!</p>
   </div>
+
+  <script>
+    // Replace Rusty with the name from session storage
+    window.onload = function() {
+      const name = sessionStorage.getItem('nextPageName') || 'Rusty';
+      const endingText = `
+        Despite ${name}'s efforts, the shattered mirrors resist reconstruction...
+
+        The fragments remain disjointed, reflecting the unresolved conflicts within them.
+
+        The chamber transforms into a nightmarish battleground, and ${name} must confront lingering shadows that threaten to consume them.
+      `;
+      document.getElementById('ending-text').innerText = endingText;
+    };
+  </script>
 </body>
 </html>

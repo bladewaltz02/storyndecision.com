@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
   <style>
-    /* Include the specified styles directly here */
     body {
       font-family: 'Cinzel Decorative', sans-serif;
       background-color: #1c1c1c;
@@ -48,23 +47,33 @@
 <body>
   <div id="story-container">
     <h1>Chapter 4: Maze of Shadows</h1>
-    <p>INT. DARK ALLEYWAYS - TWILIGHT</p>
-    <p>
-        Rusty, still haunted by the reflections in the mansion, emerges onto dark and narrow alleyways. The twisted streets seem to rearrange themselves with each step, creating a disorienting maze that echoes his inner turmoil.
-        
-        Flickering streetlights cast long shadows, and the fog morphs into shifting, amorphous shapes. Rusty navigates through the labyrinthine alleys, each turn leading him to manifestations of his deepest fears.
-        
-        As he ventures deeper, the walls close in, and ghostly whispers echo louder. Figures, distorted and menacing, lurk in the shadows, forcing Rusty to confront the shadows of his own creation.
-        
-        Sudden flashes of his past torment him—moments he wishes to forget. The air becomes dense with an oppressive weight as the alleyways seem to fold upon themselves, trapping Rusty in a never-ending loop of fear and regret.
-        
-        The ground beneath his feet feels uncertain, and the walls seem to breathe. Rusty's pulse quickens, his every step echoing in the suffocating silence. The maze of shadows becomes a relentless journey through his own psyche, a nightmarish purgatory within the heart of Silent Hill.</p>
+    <p id="story-text"></p>
     <button onclick="nextPage()">Continue</button>
   </div>
 
   <script>
+    // Replace Rusty with the name from session storage
+    window.onload = function() {
+      const name = sessionStorage.getItem('nextPageName') || 'Rusty';
+      const story = `
+        INT. DARK ALLEYWAYS - TWILIGHT
+
+        ${name}, still haunted by the reflections in the mansion, emerges onto dark and narrow alleyways. The twisted streets seem to rearrange themselves with each step, creating a disorienting maze that echoes their inner turmoil.
+        
+        Flickering streetlights cast long shadows, and the fog morphs into shifting, amorphous shapes. ${name} navigates through the labyrinthine alleys, each turn leading them to manifestations of their deepest fears.
+        
+        As they venture deeper, the walls close in, and ghostly whispers echo louder. Figures, distorted and menacing, lurk in the shadows, forcing ${name} to confront the shadows of their own creation.
+        
+        Sudden flashes of their past torment them—moments they wish to forget. The air becomes dense with an oppressive weight as the alleyways seem to fold upon themselves, trapping ${name} in a never-ending loop of fear and regret.
+        
+        The ground beneath their feet feels uncertain, and the walls seem to breathe. ${name}'s pulse quickens, their every step echoing in the suffocating silence. The maze of shadows becomes a relentless journey through their own psyche, a nightmarish purgatory within the heart of Silent Hill.
+      `;
+
+      document.getElementById('story-text').innerText = story;
+    };
+
     function nextPage() {
-      // You can redirect to the next chapter or handle story progression here
+      // Redirect to the next chapter
       window.location.href = 'chapter5.html';
     }
   </script>

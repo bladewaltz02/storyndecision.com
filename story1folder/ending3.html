@@ -33,10 +33,23 @@
 <body>
   <div id="ending-container">
     <h1>Ending 3: Reflections of Despair</h1>
-    <p>Rusty, having embraced the darkness in the mirror chamber, succumbs to the malevolent forces within...</p>
-    <p>The shattered reflections merge into a grotesque manifestation, and the boundaries between reality and nightmare collapse.</p>
-    <p>This path leads to a chilling and surreal climax where Rusty becomes a permanent part of Silent Hill's twisted legacy.</p>
+    <p id="ending-text"></p>
     <p>Thank you for playing "Whispers of the Shattered Soul"!</p>
   </div>
+
+  <script>
+    // Replace Rusty with the name from session storage
+    window.onload = function() {
+      const name = sessionStorage.getItem('nextPageName') || 'Rusty';
+      const endingText = `
+        ${name}, having embraced the darkness in the mirror chamber, succumbs to the malevolent forces within...
+
+        The shattered reflections merge into a grotesque manifestation, and the boundaries between reality and nightmare collapse.
+
+        This path leads to a chilling and surreal climax where ${name} becomes a permanent part of Silent Hill's twisted legacy.
+      `;
+      document.getElementById('ending-text').innerText = endingText;
+    };
+  </script>
 </body>
 </html>
